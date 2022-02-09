@@ -33,6 +33,13 @@ router.put("/position", async (req, res) => {
 router.get("/position", async (_, res) => {
   try {
     const positions = await positionController.fetch();
+    const fakeLocation = {
+      id: 100,
+      lat: -27.591112,
+      lng: -48.546171,
+    };
+    // @ts-ignore
+    positions.push(fakeLocation);
     return res.json({ positions });
   } catch (e) {
     console.log("position get", e);
