@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import POIRouter from "./routes/poi";
+import PositionRouter from "./routes/position";
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.get("/", (_, res) => {
 });
 
 app.use("/v1", POIRouter);
+app.use("/v1", PositionRouter);
 
 app.listen(port, () => {
   console.log(`Server is running at port ${port}`);
