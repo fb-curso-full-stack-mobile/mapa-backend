@@ -33,6 +33,8 @@ class PositionController {
           lng: position.lng,
           accuracy: position.accuracy,
           heading: position.heading,
+          username: position.username || "",
+          name: position.name || "",
         },
         where: {
           id: position.id,
