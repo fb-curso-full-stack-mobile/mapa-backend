@@ -32,3 +32,16 @@ model Position {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model PolygonCoordinate {
+  id Int @id @default(autoincrement())
+  latitude Float
+  longitude Float
+  polygon Polygon @relation(fields: [polygonId], references: [id])
+  polygonId Int
+}
+
+model Polygon {
+  id Int @id @default(autoincrement())
+  coordinates PolygonCoordinate[]
+}

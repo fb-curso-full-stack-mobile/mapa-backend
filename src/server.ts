@@ -1,7 +1,8 @@
-import express from "express";
-import cors from "cors";
 import POIRouter from "./routes/poi";
+import PolygonRouter from "./routes/polygon";
 import PositionRouter from "./routes/position";
+import cors from "cors";
+import express from "express";
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.get("/", (_, res) => {
 
 app.use("/v1", POIRouter);
 app.use("/v1", PositionRouter);
+app.use("/v1", PolygonRouter);
 
 app.listen(port, () => {
   console.log(`Server is running at port ${port}`);
